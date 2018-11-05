@@ -1,24 +1,29 @@
 class Negociacao {
-	//	MUDANÇA	NO	NOME	DOS	PARÂMETROS,	AGORA	COM	UNDERLINE
-	constructor(_data,	_quantidade,	_valor)	{
-	Object.assign(this,	{	_quantidade,	_valor	});
-	this._data	=	new Date(_data.getTime());
-	Object.freeze(this);
-	}
 
-	getVolume()	{
-		return this._quantidade	*	this._valor;
-	}
+    constructor(_data, _quantidade, _valor) {
+        
+        Object.assign(this, { _quantidade, _valor })
+        this._data = new Date(_data.getTime());
+        Object.freeze(this);
+    }
 
-	getData() {
-		return new Date(this._data.getTime());
-	}
+    get volume() {
 
-	getQuantidade() {
-		return this._quantidade;
-	}
+        return this._quantidade * this._valor;
+    }
 
-	getValor() {
-		return this._valor;
-	}
+    get data() {
+
+        return new Date(this._data.getTime());
+    }
+
+    get quantidade() {
+
+        return this._quantidade;
+    }
+
+    get valor() {
+
+        return this._valor;
+    }
 }
