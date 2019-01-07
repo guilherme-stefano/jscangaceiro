@@ -1,33 +1,37 @@
-var campos  = [
-  document.querySelector('#data'),
-  document.querySelector('#valor'),
-  document.querySelector('#quantidade')
-];
+System.register([], function (_export, _context) {
+	"use strict";
 
-var	tbody	=	document.querySelector('table	tbody');
+	var campos, tbody;
+	return {
+		setters: [],
+		execute: function () {
+			campos = [document.querySelector('#data'), document.querySelector('#valor'), document.querySelector('#quantidade')];
+			tbody = document.querySelector('table	tbody');
 
-document.querySelector('.form')
-.addEventListener('submit', function(event){
-	event.preventDefault();
-	var tr = document.createElement('tr');
-	campos.forEach(function(campo) {
-		var td = document.createElement('td');
-		td.textContent = campo.value;
-		tr.appendChild(td);
-	})
 
-	var tdVolume = document.createElement('td');
-	tdVolume.textContent = campos[1].value * campos[2].value;
-	tr.appendChild(tdVolume);
-	tbody.appendChild(tr);
+			document.querySelector('.form').addEventListener('submit', function (event) {
+				event.preventDefault();
+				var tr = document.createElement('tr');
+				campos.forEach(function (campo) {
+					var td = document.createElement('td');
+					td.textContent = campo.value;
+					tr.appendChild(td);
+				});
 
-	campos[0].value = '';
+				var tdVolume = document.createElement('td');
+				tdVolume.textContent = campos[1].value * campos[2].value;
+				tr.appendChild(tdVolume);
+				tbody.appendChild(tr);
 
-	campos[1].value = 1 ;
+				campos[0].value = '';
 
-	campos[2].value = 0;
+				campos[1].value = 1;
 
-	campos[0].focus();
+				campos[2].value = 0;
+
+				campos[0].focus();
+			});
+		}
+	};
 });
-
-
+//# sourceMappingURL=index.js.map
